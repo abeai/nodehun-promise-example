@@ -19,6 +19,26 @@ Next: Comment out the `return reject` and the `return resolve` lines in `spellSu
 
 Uncomment out the `return setImmediate` lines.
 
+So it looks like this ->
+
+    function spellSuggestPromise(utterance) {
+        return new Promise(function(resolve, reject) {
+            dict.spellSuggest(utterance, function(err, correct, suggestion, origWord) {
+                console.log(err, correct, suggestion, origWord);
+                if (err) {
+                    return setImmediate(reject, error);
+                    // return reject(error);
+                }
+                if (suggestion) {
+                    // return resolve(suggestion);
+                    return setImmediate(resolve, suggestion);
+                }
+                // return resolve(origWord);
+                return setImmediate(resolve, origWord);
+            });
+        });
+    }
+
 Now kill the server, start it again, and then hit the url again.
 
 You will see the `console.log` immediately, and `Are we here yet?` as well. Functions as expected.
@@ -44,4 +64,4 @@ So again.. the workaround for now is to use `setImmediate`:
 
     return setImmediate(resolve, suggestion);
 
-I just want to make sure I'm not missing anything... I'll be testing this under load soon. 
+I just want to make sure I'm not missing anything... I'll be testing this under load soon.

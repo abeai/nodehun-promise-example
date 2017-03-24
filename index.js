@@ -62,15 +62,15 @@ function spellSuggestPromise(utterance) {
         dict.spellSuggest(utterance, function(err, correct, suggestion, origWord) {
             console.log(err, correct, suggestion, origWord);
             if (err) {
-                return setImmediate(reject, error);
-                // return reject(error);
+                // return setImmediate(reject, error);
+                return reject(error);
             }
             if (suggestion) {
-                // return resolve(suggestion);
-                return setImmediate(resolve, suggestion);
+                return resolve(suggestion);
+                // return setImmediate(resolve, suggestion);
             }
-            // return resolve(origWord);
-            return setImmediate(resolve, origWord);
+            return resolve(origWord);
+            // return setImmediate(resolve, origWord);
         });
     });
 }
