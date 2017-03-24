@@ -47,6 +47,8 @@ You will see the `console.log` immediately, and `Are we here yet?` as well. Func
 
 I think the issue is here <https://github.com/Wulf/nodehun/blob/master/src/post0.12.0/nodehun.cpp#L253>
 
+at the end of the `void Nodehun::SpellDictionary::spellSuggest(const FunctionCallbackInfo<Value>& args)` function
+
     uv_queue_work(uv_default_loop(), &spellData->request,
         Nodehun::SpellDictionary::checkSuggestions, Nodehun::SpellDictionary::sendSuggestions);
 
