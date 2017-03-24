@@ -59,7 +59,7 @@ Looking at <http://docs.libuv.org/en/v1.x/threadpool.html>
 I'm not sure if this is it exactly, but I'm thinking the that since `uv_after_work_cb` is called
 after the threadpool is completed... it may cause the resolves() in the promise to be lost somehow...
 Although I can't say why they eventually get called... My guess is they're not marked at the end of a runloop,
-and the loop is wiating for events.. eventually the runloop fires and we get the response
+and the loop is waiting for events.. eventually the runloop fires and we get the response
 
 
 So again.. the workaround for now is to use `setImmediate`:
