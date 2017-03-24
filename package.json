@@ -1,0 +1,13 @@
+{
+  "name": "nodehun-promise-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/abeai/nodehun-promise-example",
+  "author": "Sam Artioli",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.2",
+    "lodash": "^4.17.4",
+    "nodehun": "^2.0.11"
+  }
+}
